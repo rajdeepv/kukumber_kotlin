@@ -13,6 +13,8 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "io.cucumber:cucumber-java:7.2.3"
+    testImplementation 'io.appium:java-client:8.0.0'
     testImplementation 'io.cucumber:cucumber-java:7.2.3'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
 }
@@ -33,7 +35,7 @@ task cucumber() {
         javaexec {
             mainClass = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--plugin', 'html:target/cucumber-reports.html','--plugin', 'rerun:target/rerun.txt', '--glue', 'hellocucumber', 'src/test/resources', '--threads', '10']
+            args = ['--plugin', 'pretty', '--plugin', 'html:target/cucumber-reports.html','--plugin', 'rerun:target/rerun.txt', '--glue', 'hellocucumber', 'src/test/resources', '--threads', '2    ']
         }
     }
 }
